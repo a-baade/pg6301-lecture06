@@ -4,10 +4,12 @@ import * as path from "path";
 const app = express();
 
 app.get("/api/login", (req, res) => {
-  res.json({
-    username: "admin",
-    fullName: "Noen Andre Persson",
-  });
+  if (req.user) {
+    const { username, fullName } = req.user;
+    return res.json({ username, fullName });
+  } else {
+    res.sendStatus(204);
+  }
 });
 
 app.use(express.static("../client/dist"));
