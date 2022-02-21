@@ -11,7 +11,11 @@
     "format": "prettier --write **/*.{js,jsx,ts,tsx}",
     "prepare": "husky install",
     "pre-commit": "npm run prettier:check",
-    "prettier:check": "prettier --check **/*.{js,jsx,ts,tsx}"
+    "prettier:check": "prettier --check **/*.{js,jsx,ts,tsx}",
+    "build": "npm run build: server && npm run build:client",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "start": "cd server && npm start"
   },
   "author": "",
   "license": "ISC",
